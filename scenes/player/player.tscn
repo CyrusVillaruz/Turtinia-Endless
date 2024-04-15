@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://doefjgclwafpr"]
+
+[sub_resource type="Animation" id="Animation_rexr0"]
+resource_name = "idle"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2u8pu"]
+_data = {
+"idle": SubResource("Animation_rexr0")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mufx8"]
+
+[node name="Player" type="CharacterBody2D"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2u8pu")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_mufx8")
