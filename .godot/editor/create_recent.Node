@@ -1,4 +1,7 @@
+Camera2D
+AnimationTree
+AnimatedSprite2D
+Sprite2D
 CollisionShape2D
 AnimationPlayer
-AnimationTree
 CharacterBody2D
