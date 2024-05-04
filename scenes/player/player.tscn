@@ -19,7 +19,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"hurt",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -36,7 +36,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -53,7 +53,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"run",
-"speed": 5.0
+"speed": 8.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mufx8"]
@@ -65,12 +65,13 @@ anim_player = NodePath("AnimatedSprite2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -7)
-scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_6yp65")
-animation = &"hurt"
+animation = &"run"
+frame_progress = 0.561302
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2.5)
 shape = SubResource("RectangleShape2D_mufx8")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(5, 5)
