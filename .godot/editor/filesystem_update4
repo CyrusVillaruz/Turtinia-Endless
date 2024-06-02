@@ -3,3 +3,4 @@ res://game/scripts/player/player.gd
 res://game/scripts/Events.gd
 res://game/scenes/levels/level.tscn
 res://game/scripts/level.gd
+res://game/scripts/enemy/melee_enemy.gd

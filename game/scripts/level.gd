@@ -4,10 +4,10 @@ extends Node2D
 @onready var wave_label = $WaveUI/WaveLabel
 @onready var wave_progress_bar = $WaveUI/WaveProgressBar
 
-var current_wave = 0
+var current_level = 0
 var current_xp = 0
-var xp_to_next_wave = 500
-var xp_to_next_wave_multiplier = 2
+var xp_to_next_level = 500
+var xp_to_next_level_multiplier = 1.5
 var current_spawn_rate = 5.0
 var max_spawn_rate = 0.2
 
@@ -16,15 +16,15 @@ func _ready():
 	Events.player_dead.connect(game_over)
 
 func _physics_process(delta):
-	wave_label.text = str("Wave ", current_wave)
+	wave_label.text = str("Level ", current_level)
 	wave_progress_bar.value = current_xp
-	wave_progress_bar.max_value = xp_to_next_wave
+	wave_progress_bar.max_value = xp_to_next_level
 	spawn_timer.wait_time = current_spawn_rate
 	
-	if current_xp >= xp_to_next_wave:
-		current_wave += 1
+	if current_xp >= xp_to_next_level:
+		current_level += 1
 		current_xp = 0
-		xp_to_next_wave *= xp_to_next_wave_multiplier
+		xp_to_next_level *= xp_to_next_level_multiplier
 		current_spawn_rate = max(current_spawn_rate - 0.2, max_spawn_rate)
 
 func spawn_enemy():
