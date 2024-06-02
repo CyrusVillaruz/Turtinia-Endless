@@ -17,7 +17,7 @@ func _ready():
 func _physics_process(delta):
 	var direction = Input.get_vector("left", "right", "up", "down")
 	velocity = direction * speed
-	update_sprite()
+	update_animations()
 	move_and_slide()
 	
 	var collided_enemies = %Hurtbox.get_overlapping_bodies()
@@ -28,13 +28,16 @@ func _physics_process(delta):
 		if health <= 0:
 			player_dead.emit()
 
-func update_sprite():
+func update_animations():
 	if velocity.length() > 0:
 		anim_player.play("run")
 	else:
 		anim_player.play("idle")
 		
 	if velocity.x != 0:
-		$AnimatedSprite2D.flip_h = velocity.x < 0
+		$AnimatedSprite2D.flip_h = get_global_mouse_position().x < global_position.x
 		sword.position = Vector2(-7, 2) if animated_sprite_2d.flip_h else Vector2(7, 2)
 		sword.scale = Vector2(-1, 1) if animated_sprite_2d.flip_h else Vector2(1, 1)
+	
+	if Input.is_action_just_pressed("attack"):
+		sword.swing_sword()
