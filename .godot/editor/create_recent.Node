@@ -1,5 +1,9 @@
-Timer
+Label
+ProgressBar
+VBoxContainer
+Control
 CanvasLayer
+Timer
 PathFollow2D
 Path2D
 CollisionShape2D
@@ -8,8 +12,3 @@ AnimatedSprite2D
 AnimationPlayer
 Sprite2D
 CharacterBody2D
-ProgressBar
-Camera2D
-Node
-TileMap
-AnimationTree

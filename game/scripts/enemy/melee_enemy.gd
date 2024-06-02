@@ -4,6 +4,7 @@ signal enemy_damaged(amount)
 
 @export var speed: float = 50.0
 @export var health: float = 5.0
+@export var xp_amount: float = 100.0
 
 @onready var player = get_node("/root/Level/Player")
 @onready var animated_sprite_2d = $AnimatedSprite2D
@@ -21,6 +22,7 @@ func take_damage(amount):
 	health -= amount
 	velocity = Vector2.ZERO
 	if health <= 0:
+		Events.update_xp.emit(xp_amount)
 		queue_free()
 
 func update_animation(direction):

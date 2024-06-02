@@ -6,3 +6,5 @@ res://game/scripts/enemy/melee_enemy.gd
 res://game/scripts/player/player.gd
 res://game/scripts/level.gd
 res://game/scripts/player/sword.gd
+res://game/scripts/events.gd
+res://game/scripts/Events.gd
