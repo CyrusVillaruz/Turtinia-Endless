@@ -2,9 +2,12 @@ extends CharacterBody2D
 
 signal player_dead
 
-@export var speed: float = 100
+@export var speed: float = 100.0
 @export var health: float = 100.0
 @export var anim_player: AnimatedSprite2D
+
+@onready var sword = $Sword
+@onready var animated_sprite_2d = $AnimatedSprite2D
 
 const DAMAGE_RATE = 2.0
 
@@ -33,3 +36,5 @@ func update_sprite():
 		
 	if velocity.x != 0:
 		$AnimatedSprite2D.flip_h = velocity.x < 0
+		sword.position = Vector2(-7, 2) if animated_sprite_2d.flip_h else Vector2(7, 2)
+		sword.scale = Vector2(-1, 1) if animated_sprite_2d.flip_h else Vector2(1, 1)

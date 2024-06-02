@@ -58,10 +58,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mufx8"]
-size = Vector2(6, 7)
+size = Vector2(8, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6pkiq"]
-size = Vector2(8, 9)
+size = Vector2(10, 10)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jk6ea"]
 corner_radius_top_left = 5
@@ -80,30 +80,29 @@ anti_aliasing = false
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("anim_player")]
 collision_mask = 2
+platform_floor_layers = 4294967292
 script = ExtResource("1_65li1")
 anim_player = NodePath("AnimatedSprite2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -7)
 sprite_frames = SubResource("SpriteFrames_6yp65")
-animation = &"run"
-frame_progress = 0.561302
+animation = &"idle"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2.5)
+position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_mufx8")
 
 [node name="Hurtbox" type="Area2D" parent="."]
 unique_name_in_owner = true
-collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
-position = Vector2(0, 2.5)
+position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_6pkiq")
 debug_color = Color(1, 0.00784314, 0.0745098, 0.419608)
 
@@ -119,3 +118,4 @@ value = 80.0
 show_percentage = false
 
 [node name="Sword" parent="." instance=ExtResource("11_3acy1")]
+position = Vector2(6, 0)
