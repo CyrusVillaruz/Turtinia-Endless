@@ -24,6 +24,10 @@ func take_damage(amount):
 	if health <= 0:
 		Events.update_xp.emit(xp_amount)
 		queue_free()
+	
+	animated_sprite_2d.modulate = Color.RED
+	await get_tree().create_timer(0.1).timeout
+	animated_sprite_2d.modulate = Color.WHITE
 
 func update_animation(direction):
 	animated_sprite_2d.play("run")
