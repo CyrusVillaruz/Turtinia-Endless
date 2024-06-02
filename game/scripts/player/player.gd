@@ -1,7 +1,5 @@
 extends CharacterBody2D
 
-signal player_dead
-
 @export var speed: float = 100.0
 @export var health: float = 100.0
 @export var anim_player: AnimatedSprite2D
@@ -26,7 +24,7 @@ func _physics_process(delta):
 		health -= DAMAGE_RATE * collided_enemies.size() * delta
 		$HealthBar.value = health
 		if health <= 0:
-			player_dead.emit()
+			Events.player_dead.emit()
 
 func update_animations():
 	if velocity.length() > 0:

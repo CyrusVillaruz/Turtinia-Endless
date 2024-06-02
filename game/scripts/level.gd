@@ -13,6 +13,7 @@ var max_spawn_rate = 0.2
 
 func _ready():
 	Events.update_xp.connect(add_xp)
+	Events.player_dead.connect(game_over)
 
 func _physics_process(delta):
 	wave_label.text = str("Wave ", current_wave)
@@ -34,6 +35,9 @@ func spawn_enemy():
 
 func add_xp(amount):
 	current_xp += amount
+
+func game_over():
+	pass
 
 func _on_spawn_timer_timeout():
 	spawn_enemy()
