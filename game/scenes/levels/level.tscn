@@ -285,6 +285,7 @@ position = Vector2(-186, -107)
 rotation = -0.00558653
 
 [node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 5.0
 autostart = true
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
