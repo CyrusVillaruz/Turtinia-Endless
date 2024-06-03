@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var speed: float = 100.0
-@export var health: float = 100.0
+@export var health: float = 50.0
 @export var anim_player: AnimatedSprite2D
 
 @onready var sword = $Sword
@@ -11,6 +11,7 @@ const DAMAGE_RATE = 5.0
 
 func _ready():
 	%HealthBar.value = health
+	%HealthBar.max_value = health
 	
 func _physics_process(delta):
 	var direction = Input.get_vector("left", "right", "up", "down")

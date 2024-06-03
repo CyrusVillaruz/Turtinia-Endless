@@ -1,8 +1,11 @@
 extends Node2D
 
+@export var game_over_level: PackedScene
+
 @onready var spawn_timer = $SpawnTimer
 @onready var wave_label = $WaveUI/WaveLabel
 @onready var wave_progress_bar = $WaveUI/WaveProgressBar
+@onready var game_over_ui = $GameOverUI/GameOver
 
 var current_level = 1
 var current_xp = 0
@@ -37,7 +40,10 @@ func add_xp(amount):
 	current_xp += amount
 
 func game_over():
-	pass
-
+	spawn_timer.stop()
+	await LevelTransition.fade_in()
+	Events.update_highest_level_text.emit(current_level)
+	game_over_ui.show()
+	
 func _on_spawn_timer_timeout():
 	spawn_enemy()

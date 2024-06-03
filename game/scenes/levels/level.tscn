@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bgcrfgtibkj5r"]
+[gd_scene load_steps=8 format=3 uid="uid://bgcrfgtibkj5r"]
 
 [ext_resource type="Script" path="res://game/scripts/level.gd" id="1_jshbj"]
+[ext_resource type="PackedScene" uid="uid://cyrwa7wqy8ua6" path="res://game/scenes/game_over.tscn" id="2_lxw0y"]
 [ext_resource type="FontFile" uid="uid://dtp1cmeh2885c" path="res://game/ThaleahFat.ttf" id="6_2ykn3"]
 [ext_resource type="PackedScene" uid="uid://doefjgclwafpr" path="res://game/scenes/player/player.tscn" id="6_5ec3s"]
 
@@ -19,6 +20,7 @@ bg_color = Color(0.8, 0.713726, 0.941176, 1)
 [node name="Level" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_jshbj")
+game_over_level = ExtResource("2_lxw0y")
 
 [node name="Player" parent="." instance=ExtResource("6_5ec3s")]
 
@@ -62,5 +64,10 @@ theme_override_styles/background = SubResource("StyleBoxFlat_8e88h")
 theme_override_styles/fill = SubResource("StyleBoxFlat_00ayj")
 value = 80.0
 show_percentage = false
+
+[node name="GameOverUI" type="CanvasLayer" parent="."]
+
+[node name="GameOver" parent="GameOverUI" instance=ExtResource("2_lxw0y")]
+visible = false
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
