@@ -4,3 +4,7 @@ res://game/scripts/Events.gd
 res://game/scenes/levels/level.tscn
 res://game/scripts/level.gd
 res://game/scripts/enemy/melee_enemy.gd
+res://game/scenes/game_over.tscn
+res://game/scripts/game_over.gd
+res://game/scenes/level_transition.tscn
+res://game/scripts/level_transition.gd

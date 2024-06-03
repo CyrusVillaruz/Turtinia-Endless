@@ -7,7 +7,7 @@ extends CharacterBody2D
 @onready var sword = $Sword
 @onready var animated_sprite_2d = $AnimatedSprite2D
 
-const DAMAGE_RATE = 2.0
+const DAMAGE_RATE = 5.0
 
 func _ready():
 	%HealthBar.value = health

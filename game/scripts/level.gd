@@ -4,11 +4,11 @@ extends Node2D
 @onready var wave_label = $WaveUI/WaveLabel
 @onready var wave_progress_bar = $WaveUI/WaveProgressBar
 
-var current_level = 0
+var current_level = 1
 var current_xp = 0
-var xp_to_next_level = 500
+var xp_to_next_level = 400
 var xp_to_next_level_multiplier = 1.5
-var current_spawn_rate = 5.0
+var current_spawn_rate = 2.0
 var max_spawn_rate = 0.2
 
 func _ready():

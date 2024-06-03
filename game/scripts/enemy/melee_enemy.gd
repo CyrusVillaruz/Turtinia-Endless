@@ -2,9 +2,9 @@ extends CharacterBody2D
 
 signal enemy_damaged(amount)
 
-@export var speed: float = 50.0
+@export var speed: float = 70.0
 @export var health: float = 5.0
-@export var xp_amount: float = 250.0
+@export var xp_amount: float = 200.0
 
 @onready var player = get_node("/root/Level/Player")
 @onready var animated_sprite_2d = $AnimatedSprite2D
